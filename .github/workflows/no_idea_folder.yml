@@ -21,3 +21,9 @@ jobs:
         run: |
           echo "Folder .idea exists."
           exit 1
+
+      - name: Folder not exist
+        if: steps.check_files.outputs.files_exists == 'false'
+        run: |
+          echo "Folder .idea not exists."
+          exit 0
