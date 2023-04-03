@@ -3,7 +3,8 @@ on:
     types: [synchronize, opened, reopened, labeled, unlabeled]
     branches:
       - 'master/**'
-
+  workflow_dispatch:
+  
 jobs:
   check_idea_file_existence:
     runs-on: ubuntu-latest
