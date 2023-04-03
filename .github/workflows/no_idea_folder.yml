@@ -17,7 +17,7 @@ jobs:
           fail: false
 
       - name: Folder exist
-        if: steps.check_idea_file_existence.outputs.files_exists == 'true'
+        if: steps.check_files.outputs.files_exists == 'true'
         run: |
           echo "Folder .idea exists."
           exit 1
