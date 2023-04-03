@@ -16,4 +16,4 @@ jobs:
 
       - name: Folder exist
         if: steps.check_idea_file_existence.outputs.exists == 'true'
-          exit 1
+        run: exit 1
