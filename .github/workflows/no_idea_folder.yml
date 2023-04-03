@@ -11,12 +11,13 @@ jobs:
     steps:
       - name: Check .idea existence
         id: check_files
-        uses: thebinaryfelix/check-file-existence-action@1.0.0
+        uses: andstor/file-existence-action@v2.0.0
         with:
           files: '.idea'
+          fail: false
 
       - name: Folder exist
-        if: steps.check_idea_file_existence.outputs.exists == 'true'
+        if: steps.check_idea_file_existence.outputs.files_exists == 'true'
         run: |
           echo "Folder .idea exists."
           exit 1
