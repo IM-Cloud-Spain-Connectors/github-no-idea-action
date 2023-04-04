@@ -1,8 +1,6 @@
 on:
   pull_request:
     types: [synchronize, opened, reopened, edited, labeled, unlabeled]
-    branches:
-      - 'master/**'
   workflow_dispatch:
   
 jobs:
