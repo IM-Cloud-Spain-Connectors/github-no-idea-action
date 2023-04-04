@@ -1,2 +1,2 @@
 # no-idea-action
-edited.
+edited..
