@@ -1,6 +1,6 @@
 on:
   pull_request:
-    types: [synchronize, opened, reopened, labeled, unlabeled]
+    types: [synchronize, opened, reopened, edited, labeled, unlabeled]
     branches:
       - 'master/**'
   workflow_dispatch:
@@ -9,12 +9,8 @@ jobs:
   check_idea_file_existence:
     runs-on: ubuntu-latest
     steps:
-      - name: Check .idea existence
-        id: check_files
-        uses: thebinaryfelix/check-file-existence-action@v1
-        with:
-          files: '.idea'
-
-      - name: Folder exist
-        if: steps.check_idea_file_existence.outputs.exists == 'true'
-        run: exit 1
+      - uses: actions/checkout@v3
+      - name: Check .idea folder exists
+        run: |
+          ls -la
+          if [ -a ".idea" ]; then exit 1; else exit 0; fi
